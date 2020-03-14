@@ -44,7 +44,7 @@ describe("Employee", () => {
     });
 
     describe("getRole", () => {
-        it("should return Email", () => {
+        it("should return Role", () => {
             // Arrange
             const name = 'Rob Cruz';
             const id = 4;
@@ -57,7 +57,6 @@ describe("Employee", () => {
         })
     });
 
-    describe("getRole", () => {});
 });
 
 
