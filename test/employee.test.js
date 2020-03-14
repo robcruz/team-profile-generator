@@ -3,22 +3,59 @@ const Employee = require("../lib/employee");
 describe("Employee", () => {
     describe("getName", () => {
         it("should return name", () => {
-            console.log('Arrange...')
             // Arrange
             const name = 'Rob Cruz';
-            const id = 123;
+            const id = 1;
+            const email = "alekseicruz@gmail.com"
             const title = 'Automation Architect';
-            const employee = new Employee(name, id, title);
+            const employee = new Employee(name, id, email, title);
 
-            console.log('Assert...')
             // Assert
             expect(employee.getName()).toEqual(name)
         })
     });
 
-    describe("getId", () => {});
+    describe("getId", () => {
+        it("should return ID", () => {
+            // Arrange
+            const name = 'Rob Cruz';
+            const id = 2;
+            const email = "alekseicruz@gmail.com"
+            const title = 'Automation Architect';
+            const employee = new Employee(name, id, email, title);
 
-    describe("getEmail", () => {});
+            // Assert
+            expect(employee.getId()).toEqual(id)
+        })
+    });
+
+    describe("getEmail", () => {
+        it("should return Email", () => {
+            // Arrange
+            const name = 'Rob Cruz';
+            const id = 3;
+            const email = "alekseicruz@gmail.com"
+            const title = 'Automation Architect';
+            const employee = new Employee(name, id, email, title);
+
+            // Assert
+            expect(employee.getEmail()).toEqual(email)
+        })
+    });
+
+    describe("getRole", () => {
+        it("should return Email", () => {
+            // Arrange
+            const name = 'Rob Cruz';
+            const id = 4;
+            const email = "alekseicruz@gmail.com"
+            const title = 'Automation Architect';
+            const employee = new Employee(name, id, email, title);
+
+            // Assert
+            expect(employee.getRole()).toEqual(title)
+        })
+    });
 
     describe("getRole", () => {});
 });
