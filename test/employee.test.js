@@ -4,7 +4,7 @@ describe("Employee", () => {
     describe("getName", () => {
         it("should return name", () => {
             // Arrange
-            const name = 'Rob Cruz';
+            const name = 'First Employee';
             const id = 1;
             const email = "alekseicruz@gmail.com"
             const title = 'Automation Architect';
@@ -18,7 +18,7 @@ describe("Employee", () => {
     describe("getId", () => {
         it("should return ID", () => {
             // Arrange
-            const name = 'Rob Cruz';
+            const name = 'First Employee';
             const id = 2;
             const email = "alekseicruz@gmail.com"
             const title = 'Automation Architect';
@@ -32,7 +32,7 @@ describe("Employee", () => {
     describe("getEmail", () => {
         it("should return Email", () => {
             // Arrange
-            const name = 'Rob Cruz';
+            const name = 'First Employee';
             const id = 3;
             const email = "alekseicruz@gmail.com"
             const title = 'Automation Architect';
@@ -46,7 +46,7 @@ describe("Employee", () => {
     describe("getRole", () => {
         it("should return Role", () => {
             // Arrange
-            const name = 'Rob Cruz';
+            const name = 'First Employee';
             const id = 4;
             const email = "alekseicruz@gmail.com"
             const title = 'Automation Architect';
