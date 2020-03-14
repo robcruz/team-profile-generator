@@ -4,7 +4,7 @@ describe("Engineer", () => {
     describe("getName", () => {
         it("should return name", () => {
             // Arrange
-            const name = 'Some Intern';
+            const name = 'Dev Queen';
             const id = 1;
             const email = "alekseicruz@gmail.com";
             const github = 'robcruz'
@@ -18,7 +18,7 @@ describe("Engineer", () => {
     describe("getId", () => {
         it("should return ID", () => {
             // Arrange
-            const name = 'Some Intern';
+            const name = 'Dev Queen';
             const id = 2;
             const email = "alekseicruz@gmail.com"
             const github = 'robcruz'
@@ -32,7 +32,7 @@ describe("Engineer", () => {
     describe("getEmail", () => {
         it("should return Email", () => {
             // Arrange
-            const name = 'Some Intern';
+            const name = 'Dev Queen';
             const id = 3;
             const email = "alekseicruz@gmail.com"
             const github = 'robcruz'
@@ -46,7 +46,7 @@ describe("Engineer", () => {
     describe("getRole", () => {
         it("should return Role", () => {
             // Arrange
-            const name = 'Some Intern';
+            const name = 'Dev Queen';
             const id = 4;
             const email = "alekseicruz@gmail.com";
             const github = 'robcruz';
@@ -60,7 +60,7 @@ describe("Engineer", () => {
     describe("getGithub", () => {
         it("should return Github username", () => {
             // Arrange
-            const name = 'Some Intern';
+            const name = 'Dev Queen';
             const id = 4;
             const email = "alekseicruz@gmail.com";
             const github = 'robcruz';
