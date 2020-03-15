@@ -48,6 +48,7 @@ async function start() {
         });
 
         let role = employee.role.shift();
+
         if (role === 'Engineer') {
             let engineer = await inquirer.prompt([
             {
@@ -68,121 +69,38 @@ async function start() {
             teamEngineer.name = engineer.name;
             teamEngineer.email = engineer.email;
             teamEngineer.github = engineer.github;
-            teamEngineer.id = engineer.length + 1;
+            teamEngineer.id = employees.length + 1;
+
+            employees.push(teamEngineer);
+
         } else if (role === 'Intern') {
-            console.log(role)
+            let intern = await inquirer.prompt([
+                {
+                    message: "Enter intern's name:",
+                    name: "name"
+                },
+                {
+                    message: "Enter intern's email:",
+                    name: "email"
+                },
+                {
+                    message: "Enter intern's School:",
+                    name: "school"
+                }
+            ]);
+
+            let teamIntern = new Intern();
+            teamIntern.name = intern.name;
+            teamIntern.email = intern.email;
+            teamIntern.school = intern.school;
+            teamIntern.id = employees.length + 1;
+
+            employees.push(teamIntern);
+
         } else {
+            console.log(employees);
             break;
         }
-        console.log(employee)
+        console.log(employees)
     }
-
-
 }
-
-
-// let { manager, stack, contact } = await inquirer.prompt([
-//     {
-//         type: "input",
-//         message: "What is the manager's name?",
-//         name: "manager"
-//     },
-//     {
-//         type: "checkbox",
-//         message: "What languages do you know?",
-//         name: "stack",
-//         choices: [
-//             "HTML",
-//             "CSS",
-//             "JavaScript",
-//             "MySQL"
-//         ]
-//     },
-//     {
-//         type: "list",
-//         message: "What is your preferred method of communication?",
-//         name: "contact",
-//         choices: [
-//             "email",
-//             "phone",
-//             "telekinesis"
-//         ]
-//     }
-// ]);
-
-
-// console.log(`Manager: ${manager}`)
-// console.log(`Stack: ${stack}`)
-// console.log(`Contact: ${contact}`)
-
-
-// let { manager, stack, contact } = await inquirer.prompt([
-//     {
-//         type: "input",
-//         message: "What is the manager's name?",
-//         name: "manager"
-//     },
-//     {
-//         type: "checkbox",
-//         message: "What languages do you know?",
-//         name: "stack",
-//         choices: [
-//             "HTML",
-//             "CSS",
-//             "JavaScript",
-//             "MySQL"
-//         ]
-//     },
-//     {
-//         type: "list",
-//         message: "What is your preferred method of communication?",
-//         name: "contact",
-//         choices: [
-//             "email",
-//             "phone",
-//             "telekinesis"
-//         ]
-//     }
-// ]);
-
-// inquirer.prompt([
-//     {
-//         type: "input",
-//         name: "name",
-//         message: "What is your name?"
-//     },
-//     {
-//         type: "checkbox",
-//         message: "What languages do you know?",
-//         name: "stack",
-//         choices: [
-//             "HTML",
-//             "CSS",
-//             "JavaScript",
-//             "MySQL"
-//         ]
-//     },
-//     {
-//         type: "list",
-//         message: "What is your preferred method of communication?",
-//         name: "contact",
-//         choices: [
-//             "email",
-//             "phone",
-//             "telekinesis"
-//         ]
-//     }
-// ]).then(function(data) {
-//
-//     var filename = data.name.toLowerCase().split(' ').join('') + ".json";
-//
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-//
-//         if (err) {
-//             return console.log(err);
-//         }
-//
-//         console.log("Success!");
-//
-//     });
-// });
