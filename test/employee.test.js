@@ -7,8 +7,7 @@ describe("Employee", () => {
             const name = 'First Employee';
             const id = 1;
             const email = "alekseicruz@gmail.com"
-            const title = 'Automation Architect';
-            const employee = new Employee(name, id, email, title);
+            const employee = new Employee(name, id, email);
 
             // Assert
             expect(employee.getName()).toEqual(name)
@@ -20,9 +19,8 @@ describe("Employee", () => {
             // Arrange
             const name = 'First Employee';
             const id = 2;
-            const email = "alekseicruz@gmail.com"
-            const title = 'Automation Architect';
-            const employee = new Employee(name, id, email, title);
+            const email = "alekseicruz@gmail.com";
+            const employee = new Employee(name, id, email);
 
             // Assert
             expect(employee.getId()).toEqual(id)
@@ -34,9 +32,8 @@ describe("Employee", () => {
             // Arrange
             const name = 'First Employee';
             const id = 3;
-            const email = "alekseicruz@gmail.com"
-            const title = 'Automation Architect';
-            const employee = new Employee(name, id, email, title);
+            const email = "alekseicruz@gmail.com";
+            const employee = new Employee(name, id, email);
 
             // Assert
             expect(employee.getEmail()).toEqual(email)
@@ -48,12 +45,11 @@ describe("Employee", () => {
             // Arrange
             const name = 'First Employee';
             const id = 4;
-            const email = "alekseicruz@gmail.com"
-            const title = 'Automation Architect';
-            const employee = new Employee(name, id, email, title);
+            const email = "alekseicruz@gmail.com";
+            const employee = new Employee(name, id, email);
 
             // Assert
-            expect(employee.getRole()).toEqual(title)
+            expect(employee.getRole()).toEqual('Employee')
         })
     });
 
