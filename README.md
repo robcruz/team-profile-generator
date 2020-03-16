@@ -47,8 +47,8 @@ templates/     // HTML template(s)
 test/          // jest tests
   employee.test.js
   Engineer.test.js
-  Intern.test.js
-  Manager.test.js
+  intern.test.js
+  manager.test.js
 app.js         // Runs the application
 ```
 
