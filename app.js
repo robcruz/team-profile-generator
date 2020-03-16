@@ -14,7 +14,7 @@ async function start() {
     const engineers = [];
     const interns = [];
 
-    let manager = await inquirer.prompt([
+    let managerPrompt = await inquirer.prompt([
         {
             message: "Enter manager's name:",
             name: "name"
@@ -29,13 +29,13 @@ async function start() {
         }
     ]);
 
-    let teamManager = new Manager();
-    teamManager.name = manager.name;
-    teamManager.email = manager.email;
-    teamManager.officeNumber = manager.officeNumber;
-    teamManager.id = managers.length + 1;
+    let manager = new Manager();
+    manager.name = managerPrompt.name;
+    manager.email = managerPrompt.email;
+    manager.officeNumber = managerPrompt.officeNumber;
+    manager.id = managers.length + 1;
 
-    managers.push(teamManager);
+    managers.push(manager);
 
     while(true) {
         let employee = await inquirer.prompt({
@@ -52,7 +52,7 @@ async function start() {
         let role = employee.role.shift();
 
         if (role === 'Engineer') {
-            let engineer = await inquirer.prompt([
+            let engineerPrompt = await inquirer.prompt([
             {
                 message: "Enter engineer's name:",
                 name: "name"
@@ -67,16 +67,16 @@ async function start() {
             }
         ]);
 
-            let teamEngineer = new Engineer();
-            teamEngineer.name = engineer.name;
-            teamEngineer.email = engineer.email;
-            teamEngineer.github = engineer.github;
-            teamEngineer.id = interns.length + managers.length + engineers.length + 1;
+            let engineer = new Engineer();
+            engineer.name = engineerPrompt.name;
+            engineer.email = engineerPrompt.email;
+            engineer.github = engineerPrompt.github;
+            engineer.id = interns.length + managers.length + engineers.length + 1;
 
-            engineers.push(teamEngineer);
+            engineers.push(engineer);
 
         } else if (role === 'Intern') {
-            let intern = await inquirer.prompt([
+            let internPrompt = await inquirer.prompt([
                 {
                     message: "Enter intern's name:",
                     name: "name"
@@ -91,13 +91,13 @@ async function start() {
                 }
             ]);
 
-            let teamIntern = new Intern();
-            teamIntern.name = intern.name;
-            teamIntern.email = intern.email;
-            teamIntern.school = intern.school;
-            teamIntern.id = interns.length + managers.length + engineers.length + 1;
+            let intern = new Intern();
+            intern.name = internPrompt.name;
+            intern.email = internPrompt.email;
+            intern.school = internPrompt.school;
+            intern.id = interns.length + managers.length + engineers.length + 1;
 
-            interns.push(teamIntern);
+            interns.push(intern);
 
         } else {
             let managerHtml = generateManagerHtml(managers.shift());
