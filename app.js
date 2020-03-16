@@ -105,7 +105,11 @@ async function start() {
             for (let engineer of engineers) engineerHtml += generateEngineerHtml(engineer);
             let internHtml = '';
             for (let intern of interns) internHtml += generateInternHtml(intern);
-            let htmlOutput = generateHTML(managerHtml, engineerHtml, internHtml);
+            let engineerSeparator = "";
+            if (engineers.length > 0) engineerSeparator = "<hr>";
+            let internSeparator = "";
+            if (interns.length > 0) internSeparator = "<hr>";
+            let htmlOutput = generateHTML(managerHtml, engineerSeparator, engineerHtml, internSeparator, internHtml);
             writeHtmlOutput(htmlOutput);
             break;
         }
@@ -113,8 +117,6 @@ async function start() {
 }
 
 function writeHtmlOutput(htmlOutput) {
-    console.log(htmlOutput);
-
     let filename = path.join(__dirname, 'output', 'index.html')
 
     fs.writeFile(filename, htmlOutput, err => {
@@ -174,7 +176,7 @@ function generateInternHtml(intern){
     `
 }
 
-function generateHTML(managerHtml, engineerHtml, internHtml) {
+function generateHTML(managerHtml, engineerSeparator, engineerHtml, internSeparator, internHtml) {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -200,13 +202,13 @@ function generateHTML(managerHtml, engineerHtml, internHtml) {
         ${ managerHtml }
         </div>
 
-        <hr>
+        ${ engineerSeparator }
 
         <div class="row justify-content-center mb-3">
         ${ engineerHtml }
         </div>
 
-        <hr>
+        ${ internSeparator }
 
         <div class="row justify-content-center mb-3">
         ${ internHtml }
@@ -216,7 +218,6 @@ function generateHTML(managerHtml, engineerHtml, internHtml) {
 </body>
 
 </html>
-
     `
 }
 
