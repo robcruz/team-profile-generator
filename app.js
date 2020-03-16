@@ -102,17 +102,14 @@ async function start() {
         } else {
             let managerHtml = generateManagerHtml(managers.shift());
             let engineerHtml = '';
-
             for (let engineer of engineers) engineerHtml += generateEngineerHtml(engineer);
-
-
-            let htmlOutput = generateHTML(managerHtml, engineerHtml, '')
+            let internHtml = '';
+            for (let intern of interns) internHtml += generateInternHtml(intern);
+            let htmlOutput = generateHTML(managerHtml, engineerHtml, internHtml);
             writeHtmlOutput(htmlOutput);
             break;
         }
     }
-
-    // render html
 }
 
 function writeHtmlOutput(htmlOutput) {
@@ -134,7 +131,6 @@ function writeHtmlOutput(htmlOutput) {
 
 function generateManagerHtml(manager){
     return `
-
             <div class="card text-center" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${manager.name}</h5>
@@ -143,14 +139,12 @@ function generateManagerHtml(manager){
                     <p class="card-text">Office Number: <span>${manager.officeNumber}</span> </p>
                 </div>
             </div>
-            
     `
 }
 
 // name, id, email, github
 function generateEngineerHtml(engineer){
     return `
-
             <div class="col-auto">
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
@@ -161,10 +155,24 @@ function generateEngineerHtml(engineer){
                     </div>
                 </div>
             </div>
-            
     `
 }
 
+// name, id, email, school
+function generateInternHtml(intern){
+    return `
+            <div class="col-auto">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${ intern.name }</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${ intern.getRole() }</h6>
+                        <p class="card-text">Email: <span>${ intern.email }</span> </p>
+                        <p class="card-text">School: <span>${ intern.school }</span> </p>
+                    </div>
+                </div>
+            </div>
+    `
+}
 
 function generateHTML(managerHtml, engineerHtml, internHtml) {
     return `
@@ -189,30 +197,19 @@ function generateHTML(managerHtml, engineerHtml, internHtml) {
     <div class="container">
 
         <div class="row justify-content-center mb-3">
-        
         ${ managerHtml }
-        
         </div>
 
+        <hr>
+
         <div class="row justify-content-center mb-3">
-        
         ${ engineerHtml }
-
         </div>
 
+        <hr>
+
         <div class="row justify-content-center mb-3">
-
-            <div class="col-auto">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Aleksei Cruz</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
-                        <p class="card-text">Email: <span>alekseicruz@gmail.com</span> </p>
-                        <p class="card-text">Office Number: <span>123</span> </p>
-                    </div>
-                </div>
-            </div>
-
+        ${ internHtml }
         </div>
 
     </div>
