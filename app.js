@@ -10,7 +10,6 @@ const Intern = require("./lib/intern");
 start();
 
 async function start() {
-    let employees = [];
     const managers = [];
     const engineers = [];
     const interns = [];
@@ -101,10 +100,9 @@ async function start() {
             interns.push(teamIntern);
 
         } else {
-            employees = managers.concat(engineers).concat(interns);
-            console.log(employees);
-
             let managerHtml = generateManagerHtml(managers.shift());
+            
+            
             let htmlOutput = generateHTML(managerHtml, '', '')
             writeHtmlOutput(htmlOutput);
             break;
@@ -136,15 +134,34 @@ function generateManagerHtml(manager){
 
             <div class="card text-center" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title" id="mgmt-name">${manager.name}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted" id="mgmt-title">${manager.getRole()}</h6>
-                    <p class="card-text">Email: <span id="mgmt-email">${manager.email}</span> </p>
-                    <p class="card-text">Office Number: <span id="mgmg-office">${manager.officeNumber}</span> </p>
+                    <h5 class="card-title">${manager.name}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
+                    <p class="card-text">Email: <span>${manager.email}</span> </p>
+                    <p class="card-text">Office Number: <span>${manager.officeNumber}</span> </p>
                 </div>
             </div>
             
     `
 }
+
+// name, id, email, github
+function generateEngineerHtml(engineer){
+    return `
+
+            <div class="col-auto">
+                <div class="card text-center" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${ engineer.name }</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">${ engineer.getRole() }</h6>
+                        <p class="card-text">Email: <span>${ engineer.email }</span> </p>
+                        <p class="card-text">Github username: <span>${ engineer.github }</span> </p>
+                    </div>
+                </div>
+            </div>
+            
+    `
+}
+
 
 function generateHTML(managerHtml, engineerHtml, internHtml) {
     return `
@@ -168,37 +185,27 @@ function generateHTML(managerHtml, engineerHtml, internHtml) {
 
     <div class="container">
 
-        <div class="row justify-content-center mb-3" id="mgmt-row">
+        <div class="row justify-content-center mb-3">
         
         ${ managerHtml }
         
         </div>
 
-        <div class="row justify-content-center mb-3" id="eng-row">
-
-            <div class="col-auto">
-                <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" id="eng-name">Aleksei Cruz</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" id="eng-title">Engineer</h6>
-                        <p class="card-text">Email: <span id="eng-email">alekseicruz@gmail.com</span> </p>
-                        <p class="card-text">Github username: <span id="eng-github">robcruz</span> </p>
-                    </div>
-                </div>
-            </div>
-
+        <div class="row justify-content-center mb-3">
+        
+        ${ engineerHtml }
 
         </div>
 
-        <div class="row justify-content-center mb-3" id="intern-row">
+        <div class="row justify-content-center mb-3">
 
             <div class="col-auto">
                 <div class="card text-center" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title" id="intern-name">Aleksei Cruz</h5>
+                        <h5 class="card-title">Aleksei Cruz</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
-                        <p class="card-text">Email: <span id="intern-email">alekseicruz@gmail.com</span> </p>
-                        <p class="card-text">Office Number: <span id="intern-office">123</span> </p>
+                        <p class="card-text">Email: <span>alekseicruz@gmail.com</span> </p>
+                        <p class="card-text">Office Number: <span>123</span> </p>
                     </div>
                 </div>
             </div>
@@ -212,52 +219,6 @@ function generateHTML(managerHtml, engineerHtml, internHtml) {
 
     `
 }
-
-
-
-
-// inquirer.prompt([
-//     {
-//         type: "input",
-//         name: "name",
-//         message: "What is your name?"
-//     },
-//     {
-//         type: "checkbox",
-//         message: "What languages do you know?",
-//         name: "stack",
-//         choices: [
-//             "HTML",
-//             "CSS",
-//             "JavaScript",
-//             "MySQL"
-//         ]
-//     },
-//     {
-//         type: "list",
-//         message: "What is your preferred method of communication?",
-//         name: "contact",
-//         choices: [
-//             "email",
-//             "phone",
-//             "telekinesis"
-//         ]
-//     }
-// ]).then(function(data) {
-//
-//     let filename = path.join(__dirname, 'output', 'index.html')
-//
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-//
-//         if (err) {
-//             return console.log(err);
-//         }
-//
-//         console.log(`Output: ${filename}`);
-//
-//     });
-// });
-
 
 
 
