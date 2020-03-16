@@ -10,7 +10,10 @@ start();
 
 async function start() {
 
-    const employees = [];
+    let employees = [];
+    const managers = [];
+    const engineers = [];
+    const interns = [];
 
     let manager = await inquirer.prompt([
         {
@@ -31,9 +34,9 @@ async function start() {
     teamManager.name = manager.name;
     teamManager.email = manager.email;
     teamManager.officeNumber = manager.officeNumber;
-    teamManager.id = employees.length + 1;
+    teamManager.id = managers.length + 1;
 
-    employees.push(teamManager);
+    managers.push(teamManager);
 
     while(true) {
         let employee = await inquirer.prompt({
@@ -69,9 +72,9 @@ async function start() {
             teamEngineer.name = engineer.name;
             teamEngineer.email = engineer.email;
             teamEngineer.github = engineer.github;
-            teamEngineer.id = employees.length + 1;
+            teamEngineer.id = interns.length + managers.length + engineers.length + 1;
 
-            employees.push(teamEngineer);
+            engineers.push(teamEngineer);
 
         } else if (role === 'Intern') {
             let intern = await inquirer.prompt([
@@ -93,15 +96,15 @@ async function start() {
             teamIntern.name = intern.name;
             teamIntern.email = intern.email;
             teamIntern.school = intern.school;
-            teamIntern.id = employees.length + 1;
+            teamIntern.id = interns.length + managers.length + engineers.length + 1;
 
-            employees.push(teamIntern);
+            interns.push(teamIntern);
 
         } else {
+            employees = managers.concat(engineers).concat(interns);
             console.log(employees);
             break;
         }
-        console.log(employees)
     }
 
     // render html

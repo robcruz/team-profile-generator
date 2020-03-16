@@ -16,67 +16,62 @@
 <body>
 
 <div class="jumbotron">
-    <h1 class="text-center">Number Guesser</h1>
-    <h2 class="text-center">See if you can guess the number the computer is thinker of!</h2>
+    <h1 class="text-center">Web Apps Dev Team</h1>
+    <h2 class="text-center">Greatest dev team in the whole wide world</h2>
 </div>
 
-<div class="container">
+    <div class="container">
 
-    <div class="card mt-1">
-        <div class="card-header">
-            <div class="card-body text-center">
-                <h3 class="card-title">Computer Pick</h3>
-                <h1 id="computer-pick">???</h1>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="card mt-1">
-            <div class="card-header">
-                <div class="card-body text-center">
-                    <h3 class="card-title">You Pick</h3>
-                    <button id="button-1" class="btn btn-danger btn-choice" value="1">
-                        <h1>1</h1>
-                    </button>
-                    <button id="button-2" class="btn btn-danger btn-choice" value="2">
-                        <h1>2</h1>
-                    </button>
-                    <button id="button-3" class="btn btn-danger btn-choice" value="3">
-                        <h1>3</h1>
-                    </button>
-                    <button id="button-4" class="btn btn-danger btn-choice" value="4">
-                        <h1>4</h1>
-                    </button>
-                </div>
+
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" id="mgmt-name">Aleksei Cruz</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="mgmt-title">Manager</h6>
+                <p class="card-text">Email: <span id="mgmt-email">alekseicruz@gmail.com</span> </p>
+                <p class="card-text">Office Number: <span id="mgmg-office">123</span> </p>
             </div>
+        </div>
 
-            <div class="card mt-1">
-                <div class="card-header">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Result</h3>
-                        <h1 id="result"></h1>
-                    </div>
-                </div>
-
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" id="eng-name">Aleksei Cruz</h5>
+                <h6 class="card-subtitle mb-2 text-muted" id="eng-title">Manager</h6>
+                <p class="card-text">Email: <span id="eng-email">alekseicruz@gmail.com</span> </p>
+                <p class="card-text">Github username: <span id="eng-github">robcruz</span> </p>
             </div>
+        </div>
 
-            <script type="text/javascript">
-                $(document).ready(function() {
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title" id="intern-name">Aleksei Cruz</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
+                <p class="card-text">Email: <span id="intern-email">alekseicruz@gmail.com</span> </p>
+                <p class="card-text">Office Number: <span id="intern-office">123</span> </p>
+            </div>
+        </div>
 
-                    // Here we create the on click event that gets the user's pick
-                    $(".btn-choice").on("click", function() {
-
-                        console.log("You clicked a button!!");
-
-                        // Add code to have the computer guess a random number between 1 and 4
-                        // Then determine which button was clicked
-                        // Compare the computer and user guess
-                        // Inform the user if the've guessed correctly or incorrectly
-
-                    });
-                });
-
-            </script>
-
+    </div>
 </body>
-
 </html>
