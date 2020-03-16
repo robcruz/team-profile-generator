@@ -101,9 +101,12 @@ async function start() {
 
         } else {
             let managerHtml = generateManagerHtml(managers.shift());
-            
-            
-            let htmlOutput = generateHTML(managerHtml, '', '')
+            let engineerHtml = '';
+
+            for (let engineer of engineers) engineerHtml += generateEngineerHtml(engineer);
+
+
+            let htmlOutput = generateHTML(managerHtml, engineerHtml, '')
             writeHtmlOutput(htmlOutput);
             break;
         }
